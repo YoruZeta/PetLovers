@@ -10,8 +10,8 @@
 
     <title>{{ config('app.name', 'ProyectoWeb') }}</title>
 
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
     <!-- Scripts -->
     <script>
@@ -42,9 +42,9 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                   
-                    
-                    
+
+
+
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -58,7 +58,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                           
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -80,7 +80,26 @@
             </div>
         </nav>
 
+
+
+        <div class="container">
+
+          <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ URL::to('home') }}">Inicio</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+                <li><a href="{{ URL::to('Pet') }}">Mis mascotas</a></li>
+                <li><a href="{{ URL::to('Pet/create') }}">Ingresar nueva mascota</a>
+                <li><a href="{{ URL::to('Tinder') }}">Patitas!</a>
+                <li><a href="{{ URL::to('Notification') }}">Notificaciones</a>
+                <li><a href="{{ URL::to('Like') }}">Likes</a>
+                <li><a href="{{route('message.chat') }}">Mensajes</a>
+            </ul>
+        </nav>
         @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->

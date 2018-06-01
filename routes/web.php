@@ -31,17 +31,6 @@ Route::get('/', function () {
 });
 
 
-//NO SE PERO DEBE SER LAS RUTAS DE AUTORIZACIÖN
-Auth::routes();
-
-//Home
-Route::get('/home', 'HomeController@index');
-
-
-//CRUD USUARIOS
-//Route::get('/', ['as' => 'users', 'uses' => 'UserController@index']);
-
-
 //Grupo de rutas de Administradores <3 (Ya no hay que poner el /admin/...)
 Route::prefix('admin')->group(function() {
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -55,3 +44,9 @@ Route::prefix('admin')->group(function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+  Route::get('/chat','MessageController@chat')->name('message.chat');
+  Route::get('/messages','MessageController@fetch')->name('message.fetch');
+  Route::post('/messages','MessageController@sendMessage')->name('message.send');
+});

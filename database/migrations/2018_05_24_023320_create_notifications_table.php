@@ -22,7 +22,7 @@ class CreateNotificationsTable extends Migration
             $table->string('selected');
             $table->string('owner_selected');
             $table->unsignedInteger('selected_id')->nullable();
-            $table->foreign('select_id')->references('id')->on('pets')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('selected_id')->references('id')->on('pets')->onUpdate('cascade')->onDelete('set null');
             $table->string('Pet');
         });
     }

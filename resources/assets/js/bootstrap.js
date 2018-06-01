@@ -1,3 +1,13 @@
+import Echo from 'laravel-echo';
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+  broadcaster: 'pusher',
+  key: '0e0f45fa6ee8a5d32d75',
+  cluster: 'us2',
+  encrypted: true
+});
 
 window._ = require('lodash');
 
