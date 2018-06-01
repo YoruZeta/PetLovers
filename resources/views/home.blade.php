@@ -7,7 +7,7 @@
 
 <title>Administración Perruna</title>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<div>&#160<div>
+<div><div>
 <div class="container">
 
 <nav class="navbar navbar-inverse">
@@ -15,8 +15,8 @@
         <a class="navbar-brand" href="{{ URL::to('home') }}">Inicio</a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('Perros') }}">Mis perros</a></li>
-        <li><a href="{{ URL::to('Perros/create') }}">Ingresar nuevo perro</a>
+        <li><a href="{{ URL::to('Pet') }}">Mis mascotas</a></li>
+        <li><a href="{{ URL::to('Pet/create') }}">Ingresar nueva mascota</a>
         <li><a href="{{ URL::to('Tinder') }}">Tinder!</a>
         <li><a href="{{ URL::to('Notification') }}">Notificaciones</a>
         <li><a href="{{ URL::to('Like') }}">Likes</a>
@@ -31,7 +31,7 @@
     Por el momento solo estan habilitados nuestros mejores amigos, los canes. En un parche nuevo tendremos mas mascotas!
 </h3>
 
-<center><img src="https://www.mundoperro.net/wp-content/uploads/Nombres-para-perros.jpg"></center>
+<center><img src="https://www.mundoPet.net/wp-content/uploads/Nombres-para-Pet.jpg"></center>
 
 </div>
 

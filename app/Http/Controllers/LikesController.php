@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Notification;
-use App\Perro;
+use App\Match;
+use App\Pet;
 use App\User;
 use Session;
 use Auth;
@@ -17,21 +17,15 @@ class LikesController extends Controller
         //Realiza un check si esta ingresado el ususario
         //Se manda la lista de notificaciones
         if (Auth::check()){
-
-            //Antes
-            //Listado de notificaciones hacia este usuario.
-            $Humano_id = Auth::user()->id;
-            $Humano_Seleccionador = User::find($Humano_id);
-            $Seleccionado =  $Humano_Seleccionador->name;
-            $notifications = Notification::where('Seleccionador', $Seleccionado)->get();
-
-            //Mirar a las notificaciones
-            return view ('Like')->with('notifications', $notifications);
-
+          //Listado de likes que ha dado este usuario.
+          $humanoDador = Auth::user()->id;
+          $matches = Match::where('give_user_id', $humanoDador)->get();
+          //Mirar a las notificaciones
+          return view ('Match')->with('matches', $matches);
         }else{
 
             return view ('welcome');
 
-        }    
+        }
     }
 }

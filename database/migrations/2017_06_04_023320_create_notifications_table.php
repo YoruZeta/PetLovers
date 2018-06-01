@@ -15,9 +15,15 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Seleccionado');
-            $table->string('Seleccionador');
-            $table->string('Perro');
+            $table->string('me');
+            $table->unsignedInteger('me_id');
+            $table->unsignedInteger('select_id')->nullable();
+            $table->foreign('select_id')->references('id')->on('pets')->onUpdate('cascade')->onDelete('set null');
+            $table->string('selected');
+            $table->string('owner_selected');
+            $table->unsignedInteger('selected_id')->nullable();
+            $table->foreign('select_id')->references('id')->on('pets')->onUpdate('cascade')->onDelete('set null');
+            $table->string('Pet');
         });
     }
 

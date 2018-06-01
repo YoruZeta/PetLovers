@@ -22,10 +22,10 @@ Route::get('Tinder/like/{id}', ['as' => 'Tinder/like', 'uses' => 'TinderControll
 //Inicio de Tinder
 Route::get('Tinder', 'TinderController@index');
 
-//TODAS LAS RUTAS DE CRUD PERROS
-Route::resource('Perros', 'PerroController');
+//TODAS LAS RUTAS DE CRUD MASCOTAS
+Route::resource('Pet', 'PetController');
 
-//RUTA DE WELCOME
+//RUTA  DE WELCOME
 Route::get('/', function () {
     return view('welcome');
 });
