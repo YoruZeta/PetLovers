@@ -10,20 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Pagina de likes
-Route::get('Like', 'LikesController@index');
 
-//Pagina Notificaciones
-Route::get('Notification', 'NotificationController@index');
-
-//Boton de like
-Route::get('Tinder/like/{id}', ['as' => 'Tinder/like', 'uses' => 'TinderController@like']);
-
-//Inicio de Tinder
-Route::get('Tinder', 'TinderController@index');
-
-//TODAS LAS RUTAS DE CRUD MASCOTAS
-Route::resource('Pet', 'PetController');
 
 //RUTA  DE WELCOME
 Route::get('/', function () {
@@ -46,7 +33,25 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-  Route::get('/chat','MessageController@chat')->name('message.chat');
-  Route::get('/messages','MessageController@fetch')->name('message.fetch');
-  Route::post('/messages','MessageController@sendMessage')->name('message.send');
+
+  //Pagina de likes
+  Route::get('Like', 'LikesController@index');
+
+  //Pagina Notificaciones
+  Route::get('Notification', 'NotificationController@index');
+
+  //Boton de like
+  Route::get('Tinder/like/{id}', ['as' => 'Tinder/like', 'uses' => 'TinderController@like']);
+
+  //Inicio de Tinder
+  Route::get('Tinder', 'TinderController@index')->name('patitas.index');
+
+  //TODAS LAS RUTAS DE CRUD MASCOTAS
+  Route::resource('Pet', 'PetController');
+
+//rutas chat
+  Route::get('/messages','MessageController@index')->name('messages.index');
+  Route::get('/messages/{chat}','MessageController@chat')->name('messages.chat');
+  Route::get('/messages/{chat}/all','MessageController@fetch')->name('message.fetch');
+  Route::post('/messages/{chat}','MessageController@sendMessage')->name('message.send');
 });

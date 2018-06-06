@@ -1,7 +1,6 @@
+@extends('layouts.app')
+
 @section('content')
-
-
-
 <h1>Modificar {{ $pet->nombre }}</h1>
 
 <!-- if there are creation errors, they will show here -->
@@ -9,12 +8,6 @@
 
 {{ Form::model($pet, array('route' => array('Pet.update', $pet->id), 'method' => 'PUT')) }}
 
-    <!--
-    <div class="form-group">
-        {{ Form::label('Humano', 'Humano') }}
-        {{ Form::text('Humano', Input::old('Humano'), array('class' => 'form-control')) }}
-    </div>
-    -->
     <div class="form-group">
          {{ Form::label('raza', 'raza') }}
          {{ Form::select('raza', array('Desconocido' => 'Seleccione el tipo',

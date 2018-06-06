@@ -25,6 +25,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function pets(){
+      return $this->hasMany(Pet::class,'humano_id');
+    }
 
     public function message(){
       return $this->hasMany(Message::class);

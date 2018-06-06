@@ -4,7 +4,7 @@
 
 
 
-<h1>Tinder Patitas!</h1>
+<h1>Patitas!</h1>
 
 <!-- Para mostrar mensajes de alerta -->
 @if (Session::has('message'))
@@ -25,7 +25,7 @@
     <tbody>
     @foreach($pet as $key => $value)
         <tr>
-            <td>{{ $value->humano_id }}</td>
+            <td>{{ $value->Userid->name }}</td>
             <td>{{ $value->raza }}</td>
             <td>{{ $value->nombre }}</td>
             <td>{{ $value->edad }}</td>
@@ -38,7 +38,7 @@
                 <!-- Like
                 <a class="btn btn-small btn-success" href="{{ URL::to('Pet/' . $value->id) }}">Mostrar</a>
                 -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('Tinder/like/' . $value->id) }}">Like</a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('Tinder/like/' . $value->id) }}">Patita</a>
                 <!-- Editar este Pet (Usando el método edit encontrado en GET /Pet/{id}/edit -->
                 <a class="btn btn-small btn-info" href="#">Dislike</a>
 

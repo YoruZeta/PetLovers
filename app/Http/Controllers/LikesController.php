@@ -17,15 +17,13 @@ class LikesController extends Controller
         //Realiza un check si esta ingresado el ususario
         //Se manda la lista de notificaciones
         if (Auth::check()){
-          //Listado de likes que ha dado este usuario.
-          $humanoDador = Auth::user()->id;
-          $matches = Match::where('give_user_id', $humanoDador)->get();
-          //Mirar a las notificaciones
-          return view ('Match')->with('matches', $matches);
+            //Listado de notificaciones hacia este usuario.
+            $humanoDador = Auth::user()->id;
+            $like = Match::where('give_user_id', $humanoDador)->get();
+            //Mirar a las notificaciones
+            return view ('Like')->with('like', $like);
         }else{
-
             return view ('welcome');
-
         }
     }
 }

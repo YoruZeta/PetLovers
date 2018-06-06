@@ -12,7 +12,7 @@
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
                 El usuario {{ $notification->giveUser->name }}
-                le dió like a tu mascota {{ $notification->likedPet->nombre }}
+                le dió lpatita a tu mascota {{ $notification->likedPet->nombre }}
 
                 </a>
             </div>

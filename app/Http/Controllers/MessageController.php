@@ -5,22 +5,30 @@ namespace App\Http\Controllers;
 use App\Events\MessageSendEvent;
 use Illuminate\Http\Request;
 use App\Message;
+use App\Match;
 use Auth;
 
 class MessageController extends Controller
 {
-    public function chat(){
-      return view('messages.chat');
+
+    public function index(){
+      $me = Auth::user();
+      $matches = Match::where('user_id', $me->id)->orWhere('match_user_id',$me->id)->get();
+      return view('messages.index')->with(['matches' => $matches]);
     }
-    public function fetch(){
-      return Message::with('user')->get();
+    public function chat($id){
+      return view('messages.chat')->with(['chat' => $id]);
+    }
+    public function fetch($id){
+      return Message::where('match_id',$id)->with('user')->get();
     }
 
-    public function sendMessage(Request $request){
+    public function sendMessage(Request $request,$id){
       $user = Auth::user();
 
       $message = Message::create([
         'message' => $request->message,
+        'match_id' => $id,
         'user_id' => Auth::user()->id
       ]);
 

@@ -26,12 +26,14 @@
         // del componente SendMessage que se esta creando.
         message: {
           message: '',
-          user: this.user
+          user: this.user,
+          created_at: ''
         }
       }
     },
     methods: {
       send(){
+        this.message.created_at = new Date();
         this.$emit('messagesend', this.message);
         this.message = {}
       }

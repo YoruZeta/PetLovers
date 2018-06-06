@@ -92,10 +92,10 @@
 
                 <li><a href="{{ URL::to('Pet') }}">Mis mascotas</a></li>
                 <li><a href="{{ URL::to('Pet/create') }}">Ingresar nueva mascota</a>
-                <li><a href="{{ URL::to('Tinder') }}">Patitas!</a>
+                <li><a href="{{ URL::to('Tinder') }}">Patitas</a>
                 <li><a href="{{ URL::to('Notification') }}">Notificaciones</a>
-                <li><a href="{{ URL::to('Like') }}">Likes</a>
-                <li><a href="{{route('message.chat') }}">Mensajes</a>
+                <li><a href="{{ URL::to('Like') }}">Historial</a>
+                <li><a href="{{route('messages.index') }}">Mensajes</a>
             </ul>
         </nav>
         @yield('content')

@@ -1,13 +1,4 @@
-import Echo from 'laravel-echo';
-
-window.Pusher = require('pusher-js');
-
-window.Echo = new Echo({
-  broadcaster: 'pusher',
-  key: '0e0f45fa6ee8a5d32d75',
-  cluster: 'us2',
-  encrypted: true
-});
+window.moment = require('moment');
 
 window._ = require('lodash');
 
@@ -48,11 +39,13 @@ window.axios.defaults.headers.common = {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo'
+ import Echo from 'laravel-echo';
 
-// window.Pusher = require('pusher-js');
+ window.Pusher = require('pusher-js');
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+ window.Echo = new Echo({
+   broadcaster: 'pusher',
+   key: '0e0f45fa6ee8a5d32d75',
+   cluster: 'us2',
+   encrypted: true
+ });

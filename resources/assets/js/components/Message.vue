@@ -7,6 +7,7 @@
         </div>
         <div class="panel-body">
           <p>{{ message.message }}</p>
+            <p>{{ mom(message.created_at).fromNow() }}</p>
         </div>
       </div>
     </div>
@@ -14,10 +15,17 @@
 </template>
 
 <script>
+
   export default{
     props: ['messages'],
     mounted() {
-      console.log(this.message);
+    },
+    methods: {
+      mom: require('moment')
+    },watch:{
+      messages: function(val){
+        console.log(val[0].created_at);
+      }
     }
   }
 </script>

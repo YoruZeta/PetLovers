@@ -11,8 +11,7 @@
 
 
 <h3>
-    Bienvenido a la applicación de tinder para tus mascotas!
-    Por el momento solo estan habilitados nuestros mejores amigos, los canes. En un parche nuevo tendremos mas mascotas!
+  Bienvenido a Pet Lovers!
 </h3>
 
 <center><img src="https://www.mundoPet.net/wp-content/uploads/Nombres-para-Pet.jpg"></center>

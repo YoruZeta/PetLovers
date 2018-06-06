@@ -15,14 +15,8 @@ class CreateMatchesTable extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('give_user_id');
-            $table->foreign('give_user_id')->references('id')->on('users');
-            $table->unsignedInteger('liked_pet_id');
-            $table->foreign('liked_pet_id')->references('id')->on('pets');
-            $table->unsignedInteger('owner_user_id');
-            $table->foreign('owner_user_id')->references('id')->on('users');
-            $table->unsignedInteger('match_pet_id')->nullable();
-            $table->foreign('match_pet_id')->references('id')->on('pets');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('match_user_id');
             $table->timestamps();
         });
     }

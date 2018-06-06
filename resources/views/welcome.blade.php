@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Tinder for dogs</title>
+        <title>Pet Lovers</title>
 
         <!-- Fonts -->
 
@@ -78,11 +78,11 @@
                 </div>
             @endif
 
-            <div>&#160<div>
+            <div><div>
 
             <div class="content">
                 <div class="title m-b-md">
-                    ¡Tinder Patitas!
+                    ¡Pet Lovers!
                 </div>
 
                 <!--
