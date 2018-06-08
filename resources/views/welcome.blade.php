@@ -84,21 +84,7 @@
                 <div class="title m-b-md">
                     ¡Pet Lovers!
                 </div>
-
-                <!--
-                <div class="links">
-
-
-
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-
-                </div>
-                -->
                 <center><img src="http://1.bp.blogspot.com/-4kLiRHgRUu8/Vl8_gKt48bI/AAAAAAAAANo/6BOKIdY9y6o/s1600/Logo1.png"></center>
-
             </div>
         </div>
     </body>

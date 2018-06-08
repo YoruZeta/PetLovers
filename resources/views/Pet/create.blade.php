@@ -1,15 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
-
-
 <h1>Ingresar mascota</h1>
-
-<!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
-
-{{ Form::open(array('url' => 'Pet')) }}
-
+{{ Form::open(array('url' => 'Pet','files'=> true)) }}
     <div class="form-group">
          {{ Form::label('raza', 'Tipo') }}
          {{ Form::select('raza', array('Desconocido' => 'Seleccione el tipo',
@@ -39,7 +32,7 @@
 
     <div class="form-group">
         {{ Form::label('foto', 'Foto') }}
-        {{ Form::text('foto', Input::old('foto'), array('class' => 'form-control')) }}
+        {{ Form::file('foto', Input::old('foto'), array('class' => 'form-control')) }}
     </div>
 
     {{ Form::submit('Crearlo!', array('class' => 'btn btn-primary')) }}

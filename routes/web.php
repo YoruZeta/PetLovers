@@ -41,7 +41,10 @@ Route::middleware(['auth'])->group(function () {
   Route::get('Notification', 'NotificationController@index');
 
   //Boton de like
-  Route::get('Tinder/like/{id}', ['as' => 'Tinder/like', 'uses' => 'TinderController@like']);
+  Route::get('Tinder/like/{id}', 'TinderController@like');
+
+  //Boton de Dislike
+  Route::get('Tinder/dislike/{id}', 'TinderController@dislike');
 
   //Inicio de Tinder
   Route::get('Tinder', 'TinderController@index')->name('patitas.index');

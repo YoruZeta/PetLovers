@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Fecha</th>
+      <th><h5>Fecha</h5></th>
     </tr>
   </thead>
   <tbody>

@@ -32,9 +32,6 @@ class TinderController extends Controller
     }
 
     private function interaction($id,$isLike){
-
-
-
           //Id del que dio like
           $me = Auth::user();
           //Encuentra a las mascota gustada
@@ -61,9 +58,6 @@ class TinderController extends Controller
           }else{
             return redirect(route('patitas.index'))->with('message','Like registrado!');
           }
-
-
-
     }
 
     public function like($id)

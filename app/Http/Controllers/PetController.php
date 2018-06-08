@@ -60,7 +60,7 @@ class PetController extends Controller
               'nombre'        => 'required',
               'edad'          => 'required|numeric',
               'sexo'          => 'required',
-              'foto'          => 'required'
+              'foto'          => 'required|file'
           );
           //validamos las reglas con los ingresos
           $validator = validator(Input::all(), $rules);
@@ -70,6 +70,9 @@ class PetController extends Controller
                   ->withErrors($validator)
                   ->withInput();
           } else {
+              $photo = $request->file('foto');
+              $fileName = Auth::user()->id."_".time().".".$photo->getClientOriginalExtension();
+              $photo->move(public_path('/images/pets'),$fileName);
               // store
               $pet = new Pet();
               $pet->humano_id   = Auth::user()->id;
@@ -77,7 +80,7 @@ class PetController extends Controller
               $pet->nombre      = Input::get('nombre');
               $pet->edad        = Input::get('edad');
               $pet->sexo        = Input::get('sexo');
-              $pet->foto        = Input::get('foto');
+              $pet->foto        = '/images/pets/'.$fileName;
               $pet->save();
               // redirect
               Session::flash('message', 'Ingreso correcto de su mascota!');
