@@ -17,7 +17,14 @@ class MessageController extends Controller
       return view('messages.index')->with(['matches' => $matches]);
     }
     public function chat($id){
-      return view('messages.chat')->with(['chat' => $id]);
+      $match = Match::find($id);
+      if($match->user_id == Auth::user()->id){
+        $theOther = $match->match;
+      }else{
+        $theOther = $match->user;
+      }
+  
+      return view('messages.chat')->with(['chat' => $id,"theOther" => $theOther ]);
     }
     public function fetch($id){
       return Message::where('match_id',$id)->with('user')->get();

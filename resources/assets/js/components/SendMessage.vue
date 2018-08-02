@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-footer">
           <form @submit.prevent.keyup="send">
@@ -8,7 +8,7 @@
               <input type="text" class="form-control" v-model="message.message">
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+              <button type="submit" class="btn btn-primary float-right">Enviar mensaje</button>
             </div>
           </form>
         </div>

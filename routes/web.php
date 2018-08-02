@@ -11,22 +11,10 @@
 |
 */
 
-
 //RUTA  DE WELCOME
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-//Grupo de rutas de Administradores <3 (Ya no hay que poner el /admin/...)
-Route::prefix('admin')->group(function() {
-	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-	Route::get('/', 'AdminController@index')->name('admin.home');//Esta ruta debe ir despues ya que da conflicto con las anteriores.
-
-});
-
-
 
 Auth::routes();
 
@@ -38,7 +26,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('Like', 'LikesController@index');
 
   //Pagina Notificaciones
-  Route::get('Notification', 'NotificationController@index');
+  Route::get('Notification/index', 'NotificationController@index');
+  Route::get('Notification/profile/{id}', 'NotificationController@profile');
 
   //Boton de like
   Route::get('Tinder/like/{id}', 'TinderController@like');

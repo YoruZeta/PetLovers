@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Todas tus mascotas</h1>
+
 @if (Session::has('message'))
     <div class="alert alert-info alert-dismissable">{{ Session::get('message') }}
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -10,6 +10,7 @@
 @if(count($pet)==0)
 <center><h2>Ingresa mascotas en la opción "Ingresar mascota en el menú"<h2></center>
 @else
+  <h1>Todas tus mascotas</h1>
       <div class="row">
       @foreach($pet as $key => $value)
       <div class="col-md-4">

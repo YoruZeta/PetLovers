@@ -4,12 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Pet Lovers</title>
-
-        <!-- Fonts -->
-
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <!-- Styles -->
         <style>
             html, body {
@@ -81,10 +76,19 @@
             <div><div>
 
             <div class="content">
-                <div class="title m-b-md">
-                    ¡Pet Lovers!
-                </div>
-                <center><img src="http://1.bp.blogspot.com/-4kLiRHgRUu8/Vl8_gKt48bI/AAAAAAAAANo/6BOKIdY9y6o/s1600/Logo1.png"></center>
+                <h1>
+                    Pet Lovers
+                </h1>
+                <center>
+                  <img src="http://1.bp.blogspot.com/-4kLiRHgRUu8/Vl8_gKt48bI/AAAAAAAAANo/6BOKIdY9y6o/s1600/Logo1.png" width="350" height="350">
+                  <h3>
+                    Pet lovers es una aplicación web del tipo red social</h3><h3>
+                    para estimularlos vínculos afectivos entre mascotas y dueños.
+                  </h3>
+                  <h2>
+                    ¡Registrate ya!
+                  </h2>
+                </center>
             </div>
         </div>
     </body>

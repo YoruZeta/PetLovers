@@ -4,25 +4,9 @@
 
 <h1 class="text-center">Mensajes</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th><h5>Fecha</h5></th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($matches as $match)
-    <tr>
-      @if($match->user_id == Auth::user()->id)
-      <td><a href="{{route('messages.chat',$match->id)}}">{{$match->match->name}}</a></td>
-      @else
-        <td><a href="{{route('messages.chat',$match->id)}}">{{$match->user->name}}</a></td>
-      @endif
-        <td>{{$match->created_at}}</td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-
+@if(count($matches)==0)
+  <center><h2>Pronto existirán mensajes, da "patita" a otros usuarios para hacer match!"<h2></center>
+@else
+  <list-matches :matches="{{$matches}}"></list-matches>
+@endif
 @endsection

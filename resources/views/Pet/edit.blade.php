@@ -2,7 +2,9 @@
 @section('content')
 <h1>Modificar {{ $pet->nombre }}</h1>
 {{ Html::ul($errors->all()) }}
-{{ Form::model($pet, array('route' => array('Pet.update', $pet->id), 'method' => 'PUT')) }}
+{{ Form::model($pet, array('route' => array('Pet.update', $pet->id), 'method' => 'PUT','files'=> true)) }}
+
+
     <div class="form-group">
          {{ Form::label('raza', 'raza') }}
          {{ Form::select('raza', array('Desconocido' => 'Seleccione el tipo',
@@ -28,7 +30,7 @@
     </div>
     <div class="form-group">
         {{ Form::label('foto', 'Foto') }}
-        {{ Form::text('foto', Input::old('foto'), array('class' => 'form-control')) }}
+        {{ Form::file('foto', Input::old('foto'), array('class' => 'form-control')) }}
     </div>
     {{ Form::submit('Modificalo!', array('class' => 'btn btn-primary')) }}
 {{ Form::close() }}

@@ -6,12 +6,14 @@
 <h1>Notificaciones</h1>
 <hr>
   @foreach($notifications as $notification)
-              <div class="alert alert-info alert-dismissable">
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                  El usuario {{ $notification->user->name}}
-                  le dió patita a tu mascota {{ $notification->pet->nombre}}
-                  </a>
-              </div>
+              <div class="alert alert-primary" role="alert">
+                    El usuario
+                    <a href="{{ URL::to('Notification/profile/' . $notification->user->id) }}" class="alert-link">
+                      {{ $notification->user->name}}
+                    </a>
+                    le dió patita a tu mascota {{ $notification->pet->nombre}}.
+                </div>
+
    @endforeach
 @endif
 @endsection

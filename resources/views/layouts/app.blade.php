@@ -91,7 +91,7 @@
                   <a class="nav-link" href="{{ URL::to('Tinder') }}">Patitas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ URL::to('Notification') }}">Notificaciones</a>
+                  <a class="nav-link" href="{{ URL::to('Notification/index') }}">Notificaciones</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::to('Like') }}">Historial</a>

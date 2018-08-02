@@ -18,3 +18,7 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 Broadcast::channel('chat.{id}', function($user,$id){
   return Auth::user();
 });
+
+Broadcast::channel('user.connected', function($user){
+  return Auth::user();
+});

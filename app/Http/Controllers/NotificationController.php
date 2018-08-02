@@ -28,4 +28,16 @@ class NotificationController extends Controller
             return view ('welcome');
         }
     }
+
+    public function profile($id)
+    {
+        //Realiza un check si esta ingresado el ususario
+        if (Auth::check()){
+            //Listado de notificaciones hacia este usuario.
+            $profile = Pet::where('humano_id',$id)->get();
+            return view ('Profile')->with('profile', $profile);
+        }else{
+            return view ('welcome');
+        }
+    }
 }

@@ -18,8 +18,8 @@ class CreateInteractionsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('pet_id');
-            $table->foreign('pet_id')->references('id')->on('pets');
-            $table->boolean('is_like');      
+            $table->foreign('pet_id')->references('id')->on('pets')->onDelete('CASCADE');
+            $table->boolean('is_like');
             $table->timestamps();
         });
     }

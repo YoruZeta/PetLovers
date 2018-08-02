@@ -1,4 +1,5 @@
 window.moment = require('moment');
+window.moment.locale('es');
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;

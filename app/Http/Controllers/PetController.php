@@ -22,7 +22,8 @@ class PetController extends Controller
       //Coje le Id del usuario = Humano en tabla pets
       if (Auth::check()){
           $humanoId = Auth::user()->id;
-          $pet = Pet::where('humano_id',$humanoId)->get();
+          $queryBuilder = Pet::where('humano_id',$humanoId);
+          $pet = $queryBuilder->get();
           return view ('Pet.index')
           ->with('pet', $pet);
       }else{
@@ -141,6 +142,7 @@ class PetController extends Controller
      */
     public function update(Request $request, $id)
     {
+      //dd("Entro");
       //Solo entra si esta login
       if (Auth::check()){
           //Validamos datos del array traido
@@ -148,11 +150,11 @@ class PetController extends Controller
           'raza'          => 'required',
           'nombre'        => 'required',
           'edad'          => 'required|numeric',
-          'sexo'          => 'required',
-          'foto'          => 'required'
+          'sexo'          => 'required'
       );
       $validator = validator(Input::all(), $rules);
       // Proceso de mandar errores
+
       if ($validator->fails()) {
           return redirect('Pet/' . $id . '/edit')
               ->withErrors($validator)
@@ -160,12 +162,19 @@ class PetController extends Controller
       } else {
           //Vamos ingresando
           $pet = Pet::find($id);
+          $photo = $request->file('foto');
+          if($photo != null){
+          //  dd($photo);
+            $fileName = Auth::user()->id."_".time().".".$photo->getClientOriginalExtension();
+            $photo->move(public_path('/images/pets'),$fileName);
+            $pet->foto        = '/images/pets/'.$fileName;
+          }
           $pet->humano_id   = Auth::user()->id;
           $pet->raza        = Input::get('raza');
           $pet->nombre      = Input::get('nombre');
           $pet->edad        = Input::get('edad');
           $pet->sexo        = Input::get('sexo');
-          $pet->foto        = Input::get('foto');
+
           $pet->save();//Guardamos.
           //Mensaje y redirección a pagina default.
           Session::flash('message', 'Actualización correcta de la mascota!');

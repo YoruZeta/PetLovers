@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('message', require('./components/Message.vue'));
 Vue.component('send-message', require('./components/SendMessage.vue'));
+Vue.component('list-matches', require('./components/ListMatches.vue'));
 Vue.directive('init', {
   bind: function(el, binding, vnode) {
     vnode.context[binding.arg] = binding.value;
@@ -29,6 +30,19 @@ const app = new Vue({
     },
     mounted(){
       this.fetchMessages();
+      Echo.join('user.connected')
+          .here((users) => {
+            //console.log(users);
+            this.$emit("on_init_connected_users", users)
+          })
+          .joining((user) => {
+            console.log("joining",user);
+            this.$emit("on_user_joinned", user);
+          })
+          .leaving((user) => {
+            console.log("leaving",user);
+            this.$emit("on_user_leaving", user);
+          })
       Echo.private(`chat.${this.chatid}`)
           .listen('MessageSendEvent', (e) => {
             this.messages.push({
